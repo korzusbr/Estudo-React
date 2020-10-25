@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    let numero=prompt("Digite um número: ");
+    document.write(`<h1>Bem vindo a tabuada de ${numero}</h1><br>`);
+//    let indice=0;
+//    while (indice <=10) {
+//         document.write(`${numero} X ${indice} = ${ numero*indice} <br>`);
+//          indice++;
+//    }
+
+for(let i=0; i<=10; i++) {
+    // if(i===5) { continue }
+    // if(i >= 5) { break }
+    document.write(`${numero} X ${i} = ${ numero*i} <br>`);
+}
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Tabuada</title>
+    
+    <style>
+        div#output {
+           border: 1px solid #ddd; 
+           padding: 20px;
+           margin-bottom: 100px;
+           height: 300px;
+           overflow-y: scroll; 
+           font-size: x-large;
+           font-family: Arial, Helvetica, sans-serif;
+           letter-spacing: 1px;
+           line-height: 1.5em;
+           font-weight: bolder;
+        }
+        div#fator-multiplicacao input {
+          padding: 10px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: large;
+          color:#222;
+          width: 100px;
+          height: 20px;
+          margin-bottom:30px;
+        }
+        div#fator-multiplicacao span {
+            display: inline-block;
+            margin-right: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: large;
+            color:#222;
+           text-transform: uppercase;
+        }
+
+        button {
+            background: green;
+            color:#fff;
+            padding:20px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-transform: uppercase;
+            font-size: large;
+        }
+    </style>
+</head>
+<body onload="tabuadaDefalt()">
+    <h1 id="titulo">Funções Tabuada</h1>
+
+    <div id="output">
+
+    </div>
+    <div id="fator-multiplicacao">
+        <span>Informe um número entre 1 e 1000</span>
+        <input type="text" name="fator" id="fator" maxlength="4" value="1">
+    </div>
+    <div class="flex">
+        <button id="mostrar" onclick="mostraTabuada()">Mostra Tabuada</button>
+        <button id="limpa" onclick="limparTabuada()">Limpar tabuada</button>
+    </div>
+    
+    <script>
+    
+    let areaTabuada = document.getElementById("output");        
+    
+    const tabuadaDefalt=()=> {
+        let def="";
+        for(let i=0; i <= 1000; i++) {
+            def+=`1 x ${i} = ${1*i}<br>`;
+         }
+         areaTabuada.innerHTML="";
+         areaTabuada.innerHTML=def;
+    }
+    
+    
+    const mostraTabuada=()=> {
+       let elementoCampo=document.getElementById("fator"); 
+       let campo=document.getElementById("fator").value;
+       let joker="";
+       if(campo=="") {
+           areaTabuada.innerHTML="<p style='color:red'>Informe um número entre 1 e 1000 para ser o fator de multiplicacao</p>";
+       } else {
+            if (isNaN(campo)) {
+                areaTabuada.innerHTML="<p style='color:red'>Você deve informar um valor numérico</p>";
+                elementoCampo.value=1;
+                return false;
+            }
+            document.getElementById("titulo").innerHTML=`Tabuada de ${campo}`;
+            if (campo >=1000) {
+                areaTabuada.innerHTML="<p style='color:red'>Informe um número entre 1 e 1000 para ser o fator de multiplicacao</p>";   
+                elementoCampo.select();  
+            } else {
+                for(let i=0; i <= 1000; i++) {
+                    joker+=`${campo} x ${i} = ${campo*i}<br>`;
+                }
+                areaTabuada.innerHTML="";
+                areaTabuada.innerHTML=joker;
+            }
+            return false       
+       }
+    } 
+    
+    const limparTabuada=()=> {
+        document.getElementById("titulo").innerHTML="Selecione um valor para executar a tabuada";
+        areaTabuada.innerHTML="";
+        document.getElementById("fator").value="";
+        return false;
+    }
+       
+    </script>
+</body>
+</html>

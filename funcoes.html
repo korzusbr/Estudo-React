@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Funções em Javascript</h1>
+
+<p id="exibicao"></p>
+
+<script>
+    //declaracao de funcao
+    // function ola(string) {
+    //     document.write(`Olá amigo ${string}<br>`);
+    // }
+    // ola("Eduardo");
+
+    // //expressao de funcao;
+    // const ola2 = function(){
+    //     document.write("Segundo teste de funcao <br>");
+    // }
+    // ola2();
+
+    // //arrow function 
+    // const ola3=()=> {
+    //     document.write("Testando cuncao com arrow funcion <br>");
+    // }
+    // ola3();
+
+    //funcao retornando valores
+    //obtando valores da funcao mediante a um parametro externo 
+    // const obtemDiaSemana=(string)=> {
+    //     let msgRetorno=null;
+    //     switch (string) {
+    //         case 0:
+    //             msgRetorno="Hoje é Segunda";
+    //             return msgRetorno;
+    //             break
+    //         case 1:
+    //             msgRetorno="Hoje é Terça";
+    //             return msgRetorno;
+    //             break    
+    //     }
+    // }
+    // let dia = obtemDiaSemana(1);
+    // console.log(`O valor de retorno da funcao é ${ dia}`);
+
+    const obtermDiaSemana=()=> {
+        return new Date().getDay();
+    }
+    let dia=obtermDiaSemana();
+    dia=parseInt(dia);
+    let diaSemanaString="";
+  
+    switch (dia) {
+        case 0: 
+        diaSemanaString="Hoje é Domingo";
+        break
+        case 1: 
+        diaSemanaString="Hoje é Segunda";
+        break
+        case 2: 
+        diaSemanaString="Hoje é Terça";
+        break
+        case 3: 
+        diaSemanaString="Hoje é Quarta";
+        break
+        case 4: 
+        diaSemanaString="Hoje é Quinta";
+        break
+        case 5: 
+        diaSemanaString="Hoje é Sexta";
+        break
+        case 6: 
+        diaSemanaString="Hoje é Sábado";
+        break
+    }
+    console.log(`Dia Semana: ${diaSemanaString}`);
+
+
+    const toNumber=(n)=> {
+       //funcao convertendo dados em numero inteiros
+        n=parseInt(n);
+        return n;
+    }
+    
+    const somar=(n1=0,n2=0)=> {
+        n1=toNumber(n1);
+        n2=toNumber(n2);
+        let soma=(n1+n2);
+        return soma;
+    }
+    //variavel resp recebe o retono da funcao somar.
+    let resp=somar(3,6);
+    console.log(`O valor da soma dos números é ${resp}`);
+
+
+
+</script>
+<body>
+</html>
